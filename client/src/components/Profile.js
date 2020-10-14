@@ -37,7 +37,7 @@ export default function Profile() {
           </Link>
           <div className={'profile_and_logout'}>
           <div className={'profile_table_outter'}>
-          <Link to='/profile' className={'profile_table_g'}>
+          <Link to='/laundryStatus' className={'profile_table_g'}>
                <div className={'profile_table_inner_overweight'}>
                   <div className={'profile_table_inner'}>
                   <img className={'profileImg_prof'}  src={Status} />
@@ -47,7 +47,7 @@ export default function Profile() {
                        </div>
                    </div>
             </Link>
-              <Link to='/laundryStatus' className={'table_profile_logout'}>
+              <Link to='/logout' className={'table_profile_logout'}>
                       <div className={'table_profile_inner'}>
                           <img className={'chart_icon'} src={Logout}/>
                   </div>

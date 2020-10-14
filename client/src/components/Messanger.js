@@ -7,7 +7,7 @@ import './assets/css/main.css'
 export default function Messanger() {
 
     return (
-        <React.Fragment>
+        <div>
             <div className={'messangerCover'}>
                 <div className={'messangerCover_inner'}>
                     <MessengerSearch/>
@@ -40,6 +40,6 @@ export default function Messanger() {
                     </div>
                 </div>
             <BottomMenu/>
-        </React.Fragment>
+        </div>
     )
 }
