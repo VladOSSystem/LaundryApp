@@ -44,7 +44,7 @@ import {
                    ...state,
                    token:null,
                    isAuthenticated: false,
-                   loadin: false
+                   loading: false
                };
             default:
                 return state;

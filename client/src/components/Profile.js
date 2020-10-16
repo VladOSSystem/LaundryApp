@@ -12,7 +12,7 @@ export default function Profile() {
       <div className={'profile_wrapper'}>
         <div className={'Profile'}>
                 <div className={'profile_inner_overweight'}>
-                <Link to='/'>
+                <Link to='/dashboard'>
                  <img className={'backImg'}  src={BackImg} />
                 </Link>
                     <div className={'profile_inner'}>

@@ -10,14 +10,20 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import InnerMessage from './components/messanger/InnerMessaging'
 import './App.css'
 import './components/assets/css/main.css'
+import Landing from './components/layouts/Landing'
+import Routes from './components/routing/Routes' 
 // redux  
 import { Provider } from 'react-redux'
 import store from './components/store'
 import setAuthToken from './components/utils/setAuthToken'
 import { loadUser } from './components/actions/auth';
 
-const App = () => {    
+const App = () => {  
 
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+  
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
@@ -34,28 +40,9 @@ const App = () => {
               classNames="slide"
             >
             <Switch location={location}>
-            <Route path="/" exact={true}>
-                <MainCompilation/>
-              </Route>
-                <Route path="/profile">
-                  <Profile />
-                </Route>
-                <Route path="/laundryStatus">
-                    <Laundry />
-                </Route>
-                <Route path="/messanger">
-                  <Messanger />
-                </Route>
-                <Route path="/login">
-                  <Login />
-                </Route>
-                <Route path="/message/:id">
-                  <InnerMessage />
-                </Route>
-              
-                <Route path="*">
-                  <ErrorPage />
-                </Route>
+
+                <Route exact path='/' component={Landing} />
+                <Route component={Routes} location={location} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>

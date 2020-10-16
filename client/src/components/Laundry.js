@@ -14,7 +14,7 @@ import ChartrStats from './assets/images/chart-stats.png'
         <div>
             <div className={"main_laundry_status"}>
                 <div className={"blur_main_laundry_status"}>
-                        <Link to='/'>
+                        <Link to='/dashboard'>
                         <img src={BackArrow}  className={'img_arrow_main_laundry_status'} />
                         </Link>
                         <div className={'info_laundry'}>
