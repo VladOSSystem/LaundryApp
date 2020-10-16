@@ -6,19 +6,22 @@ import ProfileTable from './ProfileTable'
 import BottomMenu from './BottomMenu'
 export default function MainCompilation() {
     const [modal, setModal] = useState(false)
+    const [userChoose, setUserChoose] = useState([])
     const simulateClick = (e) => {
-        console.log('click')
         setModal(true)
       }
     const closeClick = (e) => {
         setModal(false)
-
-        console.log('close')
     }
-    //   useEffect(() => {
-    //     setModal(false)
-    //   });
-      console.log(modal)
+    const setTimer = (e) => {
+        setUserChoose('timer')
+        setModal(false)
+    }
+    const keyTake = (e) => {
+        setUserChoose('key')
+        setModal(false)
+    }
+    
     return (
         <div>
            <Main/>
@@ -31,14 +34,17 @@ export default function MainCompilation() {
                     </a>
                     {
                         modal == true ? (
-                            <div id="modal" className="modal fade" role="dialog">
+                            <div id="modal" 
+                                 className="modal fade"
+                                 role="dialog">
+
                             <h4>Chcesz wziąć klucz?</h4>
                             <p className="modal-p"> 1) Prać.</p>
                             <p className="modal-p"> 2) Zabrać rzeczy.</p>
                              
-                            <div type="button"  className="btn btn-unstyled" data-dismiss="modal">1</div>
-                            <div type="button"  className="btn btn-unstyled" data-dismiss="modal">2</div>
-                            <div type="button"  onClick={closeClick} className="btn btn-unstyled" data-dismiss="modal">Cofnij</div>
+                            <div onClick={setTimer} className="btn btn-unstyled" data-dismiss="modal">1</div>
+                            <div onClick={keyTake} className="btn btn-unstyled" data-dismiss="modal">2</div>
+                            <div onClick={closeClick} className="btn btn-unstyled-red" data-dismiss="modal">Cofnij</div>
                             
                           </div>
                           

@@ -4,7 +4,10 @@
   "description": "PWA for queue managing to laundry ",
   "main": "./server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Vlad Ivanenko",
   "license": "ISC",
@@ -13,10 +16,8 @@
     "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "concurrently": "^5.3.0",
-    "cors": "^2.8.5",
+    "cors": "^2.8.5", 
     "express": "^4.17.1",
-    "geoip-lite": "^1.4.2",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.5",
@@ -24,13 +25,12 @@
     "nodemailer": "^6.4.11",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
     "socket.io": "^2.3.0",
     "validator": "^13.1.17",
     "websocket": "^1.0.32"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.4"
   }
 }

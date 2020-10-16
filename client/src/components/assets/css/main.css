@@ -1033,18 +1033,19 @@
     left: 0;
     right: 0;
     top:auto;
-    bottom: 40vh;
+    bottom: 30vh;
     text-align: center;
     letter-spacing: .04rem;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding: 1.4rem 0;
-    height: 18rem;
-    width: 24rem;
+    height: 40vh;
+    width: 30vh;
     border-radius:10px;
     background: #e8e8e8;
     animation-duration:.5s;
     animation-name:popin;
     margin: 50px auto auto;
+    border-radius: 15px;
     opacity:1;
   }
   
@@ -1078,6 +1079,24 @@
     font-size: 1.1rem;
     padding: 16px 0;
     color: #2A7CD5;
+    cursor:pointer;
+    font-weight: 600;
+    box-sizing:border-box;
+    background: transparent;
+    outline: none;  
+  
+  }
+  .btn-unstyled-red {
+    border-top:1px solid #ccc;
+    border-bottom: 0 !important;
+    display: inline-block;
+    margin-top: .4rem;
+    /*margin-bottom: 1rem;*/
+    width: 100%;
+    border-radius:10px;
+    font-size: 1.1rem;
+    padding: 16px 0;
+    color: #da0707;
     cursor:pointer;
     font-weight: 600;
     box-sizing:border-box;

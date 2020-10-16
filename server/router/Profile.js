@@ -7,7 +7,7 @@ const auth = require('../middleware/Auth');
 const axios = require('axios');
 
 
-router.get('/profile', auth, (req, res) => {
+router.get('/me', auth, (req, res) => {
 
     User.findById(req.user.id)
     .then(user => res.json(user))
