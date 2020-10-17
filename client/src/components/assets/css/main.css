@@ -1119,3 +1119,85 @@
   }
   
   }
+
+  /* alert danger */
+
+
+  .alert {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top:10px;
+      width: 60%;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 6, 6, 0.6);
+      animation: popup 0.7s;
+
+  }
+  @keyframes popup {
+    0%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.4);
+    }
+    60%{
+      transform: scale(1.1);
+    }
+    70%{
+      transform: scale(1.2);
+    }
+    80%{
+      transform: scale(1);
+    }
+    90%{
+      transform: scale(1.1);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+   .alert {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top:10px;
+      width: 60%;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 6, 6, 0.6);
+      animation: popup 0.7s;
+
+  }
+  @keyframes popup {
+    0%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.4);
+    }
+    60%{
+      transform: scale(1.1);
+    }
+    70%{
+      transform: scale(1.2);
+    }
+    80%{
+      transform: scale(1);
+    }
+    90%{
+      transform: scale(1.1);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }

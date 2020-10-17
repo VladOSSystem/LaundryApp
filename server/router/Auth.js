@@ -26,7 +26,7 @@ router.route('/login').post((req, res) => {
     User.findOne({email}).then(user => {
         // checking if user exists
         if(!user){
-            return res.status(400).json({emailnotfound: 'Email not found'});
+            return res.status(400).json({errors: {emailnotfound: 'Email nie znaleziony'}});
         }
         
         // check password
@@ -55,7 +55,7 @@ router.route('/login').post((req, res) => {
             } else {
                 return res
                     .status(400)
-                    .json({passwordincorrect: 'Password incorect'});
+                    .json({errors: {passwordincorrect: 'Hasło niepoprawne'}});
             }
         });
     });

@@ -7,7 +7,12 @@ import BackImg from './assets/images/back.png'
 import InstagramImg from './assets/images/instagram.png'
 import Logout from './assets/images/logout.png'
 import Status from './assets/images/chart.png'
-export default function Profile() {
+//redux statement
+import { logout } from './actions/auth'
+import { conncec, connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
+const Profile = ({auth: { isAuthenticated, loading }, logout}) => {
     return (
       <div className={'profile_wrapper'}>
         <div className={'Profile'}>
@@ -47,14 +52,27 @@ export default function Profile() {
                        </div>
                    </div>
             </Link>
-              <Link to='/logout' className={'table_profile_logout'}>
+              <div onClick={logout} className={'table_profile_logout'}>
                       <div className={'table_profile_inner'}>
                           <img className={'chart_icon'} src={Logout}/>
                   </div>
-              </Link>
+              </div>
           </div>
           </div>
         </div>
     </div>
     )
-}
+};
+
+Profile.propTypes = {
+    logout: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+export default connect(
+    mapStateToProps,
+    { logout }
+)(Profile)

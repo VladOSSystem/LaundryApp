@@ -9,9 +9,12 @@ import Register from '../Register'
 import MainCompilation from '../MainCompilation'
 import InnerMessage from '../messanger/InnerMessaging'
 import PrivateRoute from '../routing/PrivateRoute'
+import Alert from '../layouts/Alert'
 
 const Routes = (props) => {
     return (
+      <>
+        <Alert/>
          <Switch location={props.location}>
             <Route exact path='/register' component={Register}/>
             <Route exact path='/login' component={Login}/>
@@ -22,7 +25,8 @@ const Routes = (props) => {
             <PrivateRoute exact path='/message/:id' component={InnerMessage}/>
             <Route  path='*' component={ErrorPage}/>
           </Switch>
+        </>
     )
-}
+}       
 
 export default Routes; 
