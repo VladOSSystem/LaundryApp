@@ -9,7 +9,7 @@ import Logout from './assets/images/logout.png'
 import Status from './assets/images/chart.png'
 //redux statement
 import { logout } from './actions/auth'
-import { conncec, connect } from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 const Profile = ({auth: { isAuthenticated, loading }, logout}) => {

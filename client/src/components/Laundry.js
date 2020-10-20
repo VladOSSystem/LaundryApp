@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './assets/css/main.css'
 import BottomMenu from './BottomMenu'
 import BackArrow from '../components/assets/images/back.png'
@@ -6,10 +6,18 @@ import bigWash from '../components/assets/images/big-wash.png'
 import { Link } from 'react-router-dom'
 import Chart from './widgets/Chart'
 import {data} from './mock'
+import PropTypes from 'prop-types';
 import ChartrStats from './assets/images/chart-stats.png'
- export default function Laundry() {
-
-
+import { getLaundry } from './actions/profile'
+import { connect } from 'react-redux';
+const Laundry = ({
+    getLaundry,
+    profile,
+    auth: {user}
+}) => {
+    useEffect(() => {
+        getLaundry();
+    },[getLaundry])
     return (
         <div>
             <div className={"main_laundry_status"}>
@@ -29,7 +37,7 @@ import ChartrStats from './assets/images/chart-stats.png'
                     <img src={ChartrStats}/>
                       <div className={'inner_stats_info'}>
                         <h2>Ilość prań:</h2>
-                        <h3>344</h3>
+                        <h3>{profile.laundries.length}</h3>
                       </div>
                       </div>
                 </div>
@@ -52,3 +60,18 @@ import ChartrStats from './assets/images/chart-stats.png'
         </div>
     )
 }
+Laundry.propTypes = {
+    getLaundry: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    profile: state.profile
+})
+
+export default connect(
+    mapStateToProps,
+    {getLaundry}
+)(Laundry)

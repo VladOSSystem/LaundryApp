@@ -3,8 +3,25 @@ const router = express.Router();
 const User = require('../schemes/User');
 const Laundry = require('../schemes/Laundry');
 // auth middleware
+const auth = require('../middleware/Auth');
 
+router.get('/lastUserKey', auth, (req, res) => {
 
+    Laundry.find({
+        userId: req.user.id,
+        createdAt: {
+            $gt:new Date(Date.now() - 24*60*60 * 1000)
+          }})
+    .sort({createdAt: 'desc'})
+    .populate(
+        "userId"
+    )
+    
+    .then(laundry => res.json(laundry))
+    .catch(err => {
+        res.json(err);
+});
+})
 router.get('/allLaundry', (req, res) => {
     Laundry.find({})
     .select('userId endTime countOfMachines')
