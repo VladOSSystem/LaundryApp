@@ -8,7 +8,6 @@ const auth = require('../middleware/Auth');
 router.get('/lastUserKey', auth, (req, res) => {
 
     Laundry.find({
-        userId: req.user.id,
         createdAt: {
             $gt:new Date(Date.now() - 24*60*60 * 1000)
           }})

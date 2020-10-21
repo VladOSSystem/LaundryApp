@@ -38,12 +38,12 @@ export const register = ({name, surname, email, password, password2}) => async d
             'Content-Type': 'application/json'
         }
     };
-
+    
     const body = JSON.stringify({name, surname, email, password, password2});
-
+    console.log(body)
     try {
 
-        const res = await axios.post('http://localhost:5000/api/auth/register', body, config)
+        const res = await axios.post('/api/auth/register', body, config)
 
         dispatch({
             type: REGISTER_SUCCESS,
@@ -52,13 +52,11 @@ export const register = ({name, surname, email, password, password2}) => async d
         
         dispatch(loadUser())
     } catch(err) {
-        const errors = err.response.data.errors;
-        if (errors) {
-          errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-        }
+        const errors = err.response.data;
   
         dispatch({
-            type: REGISTER_FAIL
+            type: REGISTER_FAIL,
+            payload: errors
         })
     }
 };
@@ -75,7 +73,7 @@ export const  login = (email, password) => async dispatch => {
 
     try {
         const res = await axios.post('http://localhost:5000/api/auth/login', body, config)
-        
+        console.log(body)
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
@@ -90,7 +88,8 @@ export const  login = (email, password) => async dispatch => {
         }
 
         dispatch({
-            type:LOGIN_FAIL
+            type:LOGIN_FAIL,
+            payload:errors
         });
     }
 }

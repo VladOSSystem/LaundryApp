@@ -4,10 +4,11 @@ import {
     GET_ERROR_USERS_KEY,
 } from './types'
 import { setAlert } from './alert';
-
+import {loadUser} from './auth'
 export const getLastKey = () => async dispatch => {
 
     try {
+        dispatch(loadUser());
         const res = await axios.get('/api/lastUserKey');
 
         dispatch({

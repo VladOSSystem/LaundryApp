@@ -1038,8 +1038,8 @@
     letter-spacing: .04rem;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding: 1.4rem 0;
-    height: 40vh;
-    width: 30vh;
+    height: 35%;
+    width: 60%;
     border-radius:10px;
     background: #e8e8e8;
     animation-duration:.5s;

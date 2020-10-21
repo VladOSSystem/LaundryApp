@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './assets/css/main.css'
-import profilePic from './assets/images/user.jpg'
+import userDefault from './assets/images/user-default.png'
 import bellNotification from './assets/images/bell.png'
 import waveBottom from './assets/images/waveBottom.png'
 import waveMid from './assets/images/waveMid.png'
 import waveTop from './assets/images/waveTop.png'
 import {Link} from 'react-router-dom'
-export default function Main() {
-
+import {loadUser} from './actions/auth';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+const Main = ({loadUser, auth:{user}}) => {
+    useEffect(() => {
+        loadUser();
+    },[loadUser])
     return (
         <div className={'mainBlock'}>
             <div className={'userSettings'}>
@@ -20,7 +25,11 @@ export default function Main() {
                 <div className={'profile_outter'}>
                     <Link to='/profile'>
                         <div className={'profile'}></div>
-                        <img className={'profileImg'}  src={profilePic} />
+                        {user.profileImage == undefined ? (
+                            <img className={'profileImg'}  src={userDefault} />
+                            ) : (
+                                <img className={'profileImg'}  src={user.profileImage} />
+                        )}
                     </Link>
 
                 </div>
@@ -44,3 +53,17 @@ export default function Main() {
         </div>
     )
 }
+
+Main.propTypes = {
+    loadUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+  };
+  
+  const mapStateToProps = state => ({
+      auth: state.auth,
+      loadUser: state.loadUser
+  });
+  export default connect(
+    mapStateToProps,
+    {loadUser}
+  )(Main)

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './assets/css/main.css'
-import profilePic from './assets/images/user.jpg'
 import {getLastKey} from './actions/lastkey';
+import userDefault from './assets/images/user-default.png'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -15,12 +15,20 @@ const LastUsers = ({ getLastKey, lastkey, auth:{user}}) => {
           {
             
             lastkey.lastUser.map((v,k) => {
+              console.log(v)
               if (k === 0) {
                 return (
                   <div key={v._id} className={'profile_outter'}>
                   <Link to={`/profile/${v.userId._id}`} >
                   <div className={'profile_lastUser'}></div>
-                  <img className={'profileImg_lastUser'}  src={v.userId.profileImage} />
+                  {
+                    v.userId.profileImage == undefined ? (
+
+                      <img className={'profileImg_lastUser'}  src={userDefault} />
+                      ): (
+                        <img className={'profileImg_lastUser'}  src={v.userId.profileImage} />
+                        )
+                  }
                   <div className={'key_profile'}> </div>
                   <div className={'shadow'}> </div>
                   </Link>
@@ -31,7 +39,14 @@ const LastUsers = ({ getLastKey, lastkey, auth:{user}}) => {
                 <div key={v._id} className={'profile_outter'}>
                 <Link to={`/profile/${v.userId._id}`} >
                 <div className={'profile_lastUser_past'}></div>
-                <img className={'profileImg_lastUser'}  src={v.userId.profileImage} />
+                {
+                  v.userId.profileImage == undefined ? (
+                    <img className={'profileImg_lastUser'}  src={userDefault} />
+
+                    ): (
+                      <img className={'profileImg_lastUser'}  src={v.userId.profileImage} />
+                  )
+                }
                 </Link>
                 </div>
                )

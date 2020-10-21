@@ -14,6 +14,7 @@ export default function MainCompilation() {
         setModal(false)
     }
     const setTimer = (e) => {
+        
         setUserChoose('timer')
         setModal(false)
     }
@@ -39,11 +40,9 @@ export default function MainCompilation() {
                                  role="dialog">
 
                             <h4>Chcesz wziąć klucz?</h4>
-                            <p className="modal-p"> 1) Prać.</p>
-                            <p className="modal-p"> 2) Zabrać rzeczy.</p>
-                             
-                            <div onClick={setTimer} className="btn btn-unstyled" data-dismiss="modal">1</div>
-                            <div onClick={keyTake} className="btn btn-unstyled" data-dismiss="modal">2</div>
+                            <br/>
+                            <div onClick={setTimer} className="btn btn-unstyled" data-dismiss="modal">Prać.</div>
+                            <div onClick={keyTake} className="btn btn-unstyled" data-dismiss="modal">Zabrać rzeczy.</div>
                             <div onClick={closeClick} className="btn btn-unstyled-red" data-dismiss="modal">Cofnij</div>
                             
                           </div>
